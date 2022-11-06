@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Mumuni Abdul Azeez">
+        <meta name="description" content="Write your todo, so you dont have to forget them.">
+        <meta name="keywords" 
+        content="todo, list, todo-list, todo list, azeez, azeez todo-list, azeez todo list, todo list azeez, a20200 todo list, a20200">
+        <meta name="logo" content="./images/multicolorLogo.png">
+        <link rel="stylesheet" href="./css/app-style.css">
+        <link rel="stylesheet" href="/fontawesome-free-6.1.2-web/fontawesome-free-6.1.2-web/css/all.min.css">
+        <!-- Keep the third link as the third link, Don't remove change the position of the third link.-->
+        <link rel='shortcut icon' type='image/x-icon'>
+        <title>Todo List App</title>
+    </head>
+    <body>
+    <div id="root">
+        <div class="info">
+            <div class="hero">
+                <h1 class="pro-name">Todo List</h1>
+                <div class="color-mode">
+                    <button id="dark-mode">d</button>
+                    <button id="light-mode">l</button>
+                </div>
+            </div>
+            <div class="add-content">
+                <input type="search" id="script" placeholder="Enter Todo" class="style">
+                <div id="result"></div>
+                <button id="add-btn" type="submit">Add Todo</button>
+            </div>
+        </div>
+        <main>
+            <div class="first-list">
+                <div class="add-content">
+                    <div class="clear">
+                        <div class="count-task"></div>
+                        <button class="clear-all-btn" type="submit">Clear All</button>
+                    </div>    
+                </div>
+                <div class="task-list">
+        
+                    <div id="list"></div>
+                </div>    
+            </div>
+    
+            <div class="second-list">
+                <div class="done-add-content">
+                    <div class="clear">
+                        <div class="done-count-task"></div>
+                        <button class="done-clear-all-btn" type="submit">Clear All</button>
+                    </div>    
+                </div>
+                <div class="done-task-list">
+                    <div id="done-list"></div>
+                </div>    
+            </div>        
+    
+        </main>
+        <footer>
+            <p class="builder">Built by<button onclick="showProfile()">Azeez</button></p>
+        </footer>
+    </div>
+    <div class="page-2"></div>
+        <script src="./script/DOM.js"></script>
+        <script src="./script/pageLoader.js"></script>
+        <script src="./script/main_script.js"></script>
+        <script src="./script/colorMode.js"></script>
+        <script src="./script/newFeature/newFeatureDOM.js"></script>
+        <script src="./script/newFeature/newFeature.js"></script>
+    </body>
+</html>

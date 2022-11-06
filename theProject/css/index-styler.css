@@ -1,0 +1,84 @@
+:root {
+    --pageColor: #ffffff;
+    --btnColor: #0063c9;
+    --borderColor: #000000;
+}
+
+[data-theme="dark"] {
+    --pageColor: #000000;
+    --btnColor: #daa520;
+    --borderColor: #ffffff;
+}
+
+body{
+    background-color: var(--pageColor);
+}
+.container, .loading-text{
+    place-items: center;
+    display: flex;
+    place-content: center;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    margin-top: 30vh;
+}
+
+.loading-text {
+    font-family: 'Poppins', 'Trebuchet MS', sans-serif;
+    margin-top: 50px;
+    color: var(--borderColor);
+} 
+
+.box{
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(50deg, #0000ff, #00ffff);
+    border-radius: 100px;
+    border: 0;
+    display: grid;
+    place-content: center;
+    margin-bottom: 20px;
+}
+
+.box::before{
+    content: "";
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    position: relative;
+    top: 35px;
+    background-color: var(--pageColor);
+}
+
+.box::after{
+    content: "";
+    width: 150px;
+    height: 70px;
+    background-color: var(--pageColor);
+    border: 0;
+    border-radius:  115px;
+    position: relative;
+    top: 15px;
+    left: 2px;
+}
+
+.rotate{
+    animation: rotate 2s ease infinite forwards;
+}
+
+
+@keyframes rotate {
+    0%{
+        rotate: 0deg;
+        background: linear-gradient(25deg, #20ceda, #0063c9);
+    }
+    50%{
+        rotate: 360deg;
+        background: linear-gradient(50deg, #c95000, #daa520);
+    }
+    100%{
+        rotate: 720deg;
+        background: linear-gradient(25deg, #20ceda, #0063c9);
+    }
+}

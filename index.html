@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Mumuni Abdul Azeez">
+        <meta name="description" content="Write your todo, so you dont have to forget them.">
+        <meta name="keywords" 
+        content="todo, list, todo-list, todo list, azeez, azeez todo-list, azeez todo list, todo list azeez, a20200 todo list, a20200">
+        <!-- <meta http-equiv="refresh" content="8; url=./theProject/"> -->
+        <link rel="stylesheet" href="./theProject/css/index-styler.css">
+        <link rel='shortcut icon' type='image/x-icon'>
+        <title>Todo List App</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="box rotate"></div>
+        </div>
+        <h1 class="loading-text">Loading...</h1>
+    </body>
+    <script>
+        sessionStorage.setItem("loading", true)
+        const link = document.querySelectorAll("link")
+            realLink = link.length - 1
+            linkEl = link[realLink]
+            bodyEl = document.querySelector("body")
+            darkColor = localStorage.getItem("darkColor")
+            lightColor = localStorage.getItem("lightColor")
+            
+        const changeToDarkMood = () => {
+            linkEl.setAttribute('href', './theProject/images/darkmoodLogo.png')              
+            bodyEl.setAttribute("data-theme", "dark")
+        };
+        const changeToLightMood = () => {
+            linkEl.setAttribute('href', './theProject/images/lightmoodLogo.png')
+            bodyEl.removeAttribute("data-theme")
+        };
+        !lightColor ? changeToLightMood() : localStorage.removeItem("lightColor")
+        darkColor ? changeToDarkMood() : null 
+    </script>
+</html>

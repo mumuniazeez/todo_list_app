@@ -1,0 +1,272 @@
+/* Custom property declearation is been done in /* colorMode.js */
+:root {
+    --pageColor: #ffffff;
+    --btnColor: #0063c9;
+    --borderColor: #000000;
+}
+
+[data-theme="dark"] {
+    --pageColor: #000000;
+    --btnColor: #daa520;
+    --borderColor: #ffffff;
+}
+
+body{
+    background-color: var(--pageColor);
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.info, .profile{
+    margin-top: 55px;
+}
+
+.clear{
+    margin-left: auto;
+    display: flex;
+}
+.clear-all-btn, .count-task, .done-count-task, .done-clear-all-btn{
+    background-color: var(--btnColor);
+    color: var(--pageColor);
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0px;
+}
+
+.clear-all-btn, .done-clear-all-btn{
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.style{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 2px solid var(--borderColor);
+    background-color: var(--pageColor);
+    color: var(--borderColor);
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+#result{
+    margin-top: 5px;
+    color: var(--borderColor);
+}
+
+#add-btn{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: none;
+    background-color: var(--btnColor);
+    color: var(--pageColor);
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.add-content, .done-add-content{
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+}
+
+main{
+    margin-top: 40px;
+}
+
+.task-list, .done-task-list{
+    font-weight: bold;
+    margin-top: 10px;
+    display: flex;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+}
+
+#list, #done-list{
+    width: 700px;
+    border: 2px solid var(--borderColor);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.task, .done-task{
+    display: flex;
+}
+
+.delete-btn, .done-delete-btn{
+    margin: auto 10px auto auto;
+    color: var(--pageColor);
+    background: red;
+    border: 1px var(--pageColor) solid;
+    padding: 8px;
+    font-size: large;
+    cursor: pointer;
+    display: block;
+}
+
+.task-container{
+    background-color: var(--btnColor);
+    border-radius: 15px;
+    color: var(--pageColor);
+}
+
+input[type="checkbox"]{
+    position: relative;
+    right: 25px;
+    accent-color: var(--pageColor);
+    
+}
+
+.green{
+    background-color: green;
+}
+ 
+#dark-mode, #light-mode{
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px; 
+}
+
+#dark-mode{
+    background-color: #000000;
+    color: white;
+    border: 1px black solid;
+}
+
+#light-mode{
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px white solid;
+    display: none;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.pro-name{
+    margin-left: 120px;
+    color: var(--borderColor);
+}
+
+.color-mode{
+    margin-top: 20px;
+}
+
+.builder{
+    color: var(--borderColor);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.builder > button {
+    background-color: var(--btnColor);
+    color: var(--pageColor);
+    margin-left: 6px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    position: relative;
+    bottom: 5px;
+    border: none;
+}
+.para > a{
+    color: var(--btnColor);
+}
+#okay-btn{
+    background-color: var(--btnColor);
+    color: var(--pageColor);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#check-todo{
+    color: var(--borderColor);
+    text-align: center;
+}
+
+.profile{
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#back-btn{
+    background-color: var(--btnColor);
+    cursor: pointer;
+    padding: 8px;
+    margin-right: auto;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: var(--pageColor);
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+}
+
+.my-image{
+    display: flex;
+}
+
+.builder-img{
+    width: 250px;
+    height: 250px;
+    border-radius: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--btnColor);
+}
+
+.my-info{
+    margin-top: 50px;
+    color: var(--borderColor);
+}
+
+.my-name{
+text-align: center;
+}
+
+.invitation-to-scrimba {
+    color: var(--borderColor);
+}
+.invitation-to-scrimba > a , .about-me > a{
+    color: var(--btnColor);
+}
+
+.second-list{
+    margin-top: 40px;
+}
+
+@media all and (max-width: 699px) {
+    .add-content, .task-list, #list, .profile, .done-add-content, .done-task-list, #done-list{
+        width: 500px;
+    }
+}
+
+@media all and (max-width: 499px){
+    .add-content, .task-list, #list, .profile, .done-add-content, .done-task-list, #done-list{
+        width: 300px;
+    }
+}
+
+@media all and (max-width: 299px){
+    .add-content, .task-list, #list, .profile, .done-add-content, .done-task-list, #done-list{
+        width: 199px;
+    }
+    .builder-img{
+        height: 200px;
+    }
+    .pro-name{
+        margin-left: 10px;
+    }
+}
