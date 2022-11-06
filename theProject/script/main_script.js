@@ -46,7 +46,7 @@ const undoDelete = () => {
     sessionStorage.removeItem("recentClearedTodo")
 }
 
-const loadDeleteBtn = () => {
+function loadDeleteBtn() {
 	let motherContainer = document.querySelectorAll(".task")
 	let  currentTodo = document.querySelectorAll(".delete-btn")
 	for (let i = 0; i < currentTodo.length; i++) {

@@ -1,11 +1,10 @@
-/* Custom property declearation is been done in /* colorMode.js */
-:root {
+[data-theme-light="light"] {
     --pageColor: #ffffff;
     --btnColor: #0063c9;
     --borderColor: #000000;
 }
 
-[data-theme="dark"] {
+[data-theme-dark="dark"] {
     --pageColor: #000000;
     --btnColor: #daa520;
     --borderColor: #ffffff;

@@ -51,6 +51,7 @@ function loadCheckbox() {
 	    }
 	}
 }
+
 function doneLoadDeleteBtn() {
 	let deleteDoneMotherContainer = document.querySelectorAll(".done-task")
     console.log(deleteDoneMotherContainer);
@@ -70,15 +71,15 @@ function doneLoadDeleteBtn() {
 	            doneList.innerHTML = `<h1 id="check-todo">No Todo available.</h1>`        
 	        } else {
 	            let deleteTheTask = deleteDoneMotherContainer[i].firstElementChild.outerHTML
-	            let doneTodoToDelete = myToDo.indexOf(`\n        ${deleteTheTask}\n        `)
+	            let doneTodoToDelete = doneTask.indexOf(`\n        ${deleteTheTask}\n        `)
 	            let deleteTemplateTodo = (`\n        ${deleteTheTask}\n        `)
 	            sessionStorage.setItem("recentToDoDeleted", deleteTemplateTodo)
 	            doneTask.splice(doneTodoToDelete, 1)
-	            localStorage.setItem("myToDo", JSON.stringify(doneTask))
+	            localStorage.setItem("doneTask", JSON.stringify(doneTask))
 	            let doneTasksFromLocalStorage = JSON.parse(localStorage.getItem("doneTask"))
 	            doneTask = doneTasksFromLocalStorage
 	            addDone(doneTask)
-	            countTheTodo(doneTask)
+	            countDoneTheTodo(doneTask)
 	            result(`A Todo as been deleted. <button onclick="result('')" id="okay-btn">OK</button> <button onclick="undoDelete()" id="okay-btn">Undo Delete</button>`)
 	            sessionStorage.removeItem("recentClearedTodo")
 	            if (doneTask.length == 0) {
@@ -111,7 +112,7 @@ function addDone(theTodo) {
         <ul class="task-container">
         <li class="done-task">
             <input type="checkbox" id="done-el" checked>
-                <s>${doneTask[i]}</s>
+                <strike>${doneTask[i]}</strike>
                 <button class="green done-delete-btn"><i class="fa fa-trash" aria-hidden="true"></i></button>
             </li>
         </ul>
