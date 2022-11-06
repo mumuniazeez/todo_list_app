@@ -4,19 +4,22 @@ The Todo List App project was started on "13 of October, 2022" and was finshed o
 It has a lot of features and works perfectly. 
 
 # Features
-* Darkmood
+* Darkmood and lightmood enabled
+* Interactive user interfaces
+* Well contrasted color for the eye
 
-Check ✅✅ it out.
-@: https://az-todo-list-app.netlify.app
+## Check ✅✅ it out.
+
+Link to Project: https://az-todo-list-app.netlify.app
 
 # Contact App builder
 Email: mumuniazeez99@gmail.com.
 
 Phone number: +234 8148 8834 82.
 
-Location: Lagos, Nigeria
+Location: Lagos, Nigeria.
 
 # Credit
 Built and designed by "Azeez" and with support from his parents.
 
-copyright © Az De Coder - 2022
+ © copyright 2022 Az De Coder
