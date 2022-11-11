@@ -46,6 +46,7 @@ const undoDelete = () => {
     sessionStorage.removeItem("recentClearedTodo")
 }
 
+
 function loadDeleteBtn() {
 	let motherContainer = document.querySelectorAll(".task")
 	let  currentTodo = document.querySelectorAll(".delete-btn")
@@ -97,16 +98,16 @@ addBtn.addEventListener("click", () => {
         localStorage.setItem("myToDo", JSON.stringify(myToDo))
         result(`Your Todo have been added below. <button onclick="result('')" id="okay-btn">OK</button>`)
         countTheTodo(myToDo);
-        addDone(doneTask)
     }
 })
+
 function add(theTodo) {
     let task = ""
     for (let i = 0; i < theTodo.length; i++) {
         task += `
         <ul class="task-container">
         <li class="task">
-                <input type="checkbox" id="done-el">
+                <input type="checkbox" id="add-to-done">
                 ${theTodo[i]}
                 <button class="delete-btn"><i class="fa fa-trash" aria-hidden="true"></i></button>
             </li>
@@ -115,6 +116,8 @@ function add(theTodo) {
     }
     listRender.innerHTML = task
     loadDeleteBtn();
+    loadCheckbox();
+    doneLoadDeleteBtn();
 }
 
 clearBtn.addEventListener("dblclick", () => {
@@ -139,7 +142,8 @@ clearBtn.addEventListener("click", () => {
     }
 })
 input.addEventListener("input", () => {
-    input.value == "" || input.value == " " ? result(`Type in your Todo. <button onclick="result('')" id="okay-btn">OK</button>`)
+    input.value == "" || input.value == " " 
+    ? result(`Type in your Todo. <button onclick="result('')" id="okay-btn">OK</button>`)
     : result("")
 })
 loadDeleteBtn();

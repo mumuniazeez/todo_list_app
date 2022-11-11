@@ -25,65 +25,37 @@ function countDoneTheTodo(itemToCount) {
 countDoneTheTodo(doneTask)
 
 
-function loadCheckbox() {
-	let motherDoneContainer = document.querySelectorAll(".task")
-	let currentDoneTodo = document.querySelectorAll("#done-el")
-	for (let i = 0; i < currentDoneTodo.length; i++) {
-	    currentDoneTodo[i].onchange = () => {
-	        if (this.checked) {
-	            let theDoneTask = motherDoneContainer[i].firstElementChild.outerHTML
-	            let doneTemplateToDo = (`\n        ${theDoneTask}\n        `)
-	            doneTask.push(`
-	            <div><p>${theDoneTask}</p></div>
-	            `)
-	            addDone(doneTask)
-                let formatingIndex = myToDo.indexOf(doneTemplateToDo)
-                console.log(formatingIndex);
-                myToDo.splice(formatingIndex, 1)
-	            add(myToDo)
-                localStorage.setItem("myToDo", JSON.stringify(myToDo))
-	            let tasksFromLocalStorage = JSON.parse(localStorage.getItem("myToDo"))
-	            myToDo = tasksFromLocalStorage
-	            localStorage.setItem("doneTask", JSON.stringify(doneTask))
-	            countDoneTheTodo(doneTask)
-                countTheTodo(myToDo);
-	        }
-	    }
-	}
-}
-
 function doneLoadDeleteBtn() {
-	let deleteDoneMotherContainer = document.querySelectorAll(".done-task")
-    console.log(deleteDoneMotherContainer);
-	let  deleteCurrentTodo = document.querySelectorAll(".done-delete-btn")
-	for (let i = 0; i < deleteCurrentTodo.length; i++) {
-	    deleteCurrentTodo[i].onclick = () => {
+	let doneMotherContainer = document.querySelectorAll(".done-task")
+	let  doneCurrentTodo = document.querySelectorAll(".done-delete-btn")
+	for (let i = 0; i < doneCurrentTodo.length; i++) {
+	    doneCurrentTodo[i].onclick = () => {
 	        if (doneTask.length == 1) {
-	            let deleteTheTask = deleteDoneMotherContainer[i].firstElementChild.outerHTML
-	            let deleteTemplateTodo = (`\n        ${deleteTheTask}\n        `)
-	            sessionStorage.setItem("recentToDoDeleted", deleteTemplateTodo)
+	            let doneTheTask = doneMotherContainer[i].firstElementChild.outerHTML
+	            let doneTemplateTodo = (`\n        ${doneTheTask}\n        `)
+	            sessionStorage.setItem("recentToDoDeleted", doneTemplateTodo)
 	            localStorage.removeItem("doneTask")
 	            doneTask = []
 	            addDone(doneTask);
-	            countTheTodo(doneTask);
+	            countDoneTheTodo(doneTask)
 	            result(`A Todo as been deleted. <button onclick="result('')" id="okay-btn">OK</button> <button onclick="undoDelete()" id="okay-btn">Undo Delete</button>`)
 	            sessionStorage.removeItem("recentClearedTodo")
 	            doneList.innerHTML = `<h1 id="check-todo">No Todo available.</h1>`        
 	        } else {
-	            let deleteTheTask = deleteDoneMotherContainer[i].firstElementChild.outerHTML
-	            let doneTodoToDelete = doneTask.indexOf(`\n        ${deleteTheTask}\n        `)
-	            let deleteTemplateTodo = (`\n        ${deleteTheTask}\n        `)
-	            sessionStorage.setItem("recentToDoDeleted", deleteTemplateTodo)
-	            doneTask.splice(doneTodoToDelete, 1)
+	            let doneTheTask = doneMotherContainer[i].firstElementChild.outerHTML
+	            let todoToDelete = doneTask.indexOf(`\n        ${doneTheTask}\n        `)
+	            let doneTemplateTodo = (`\n        ${doneTheTask}\n        `)
+	            sessionStorage.setItem("recentToDoDeleted", doneTemplateTodo)
+	            doneTask.splice(todoToDelete, 1)
 	            localStorage.setItem("doneTask", JSON.stringify(doneTask))
-	            let doneTasksFromLocalStorage = JSON.parse(localStorage.getItem("doneTask"))
-	            doneTask = doneTasksFromLocalStorage
+	            let tasksFromLocalStorage = JSON.parse(localStorage.getItem("doneTask"))
+	            doneTask = tasksFromLocalStorage
 	            addDone(doneTask)
 	            countDoneTheTodo(doneTask)
 	            result(`A Todo as been deleted. <button onclick="result('')" id="okay-btn">OK</button> <button onclick="undoDelete()" id="okay-btn">Undo Delete</button>`)
 	            sessionStorage.removeItem("recentClearedTodo")
 	            if (doneTask.length == 0) {
-	                listRender.innerHTML = `<h1 id="check-todo">No Todo available.</h1>`
+	                doneList.innerHTML = `<h1 id="check-todo">No Todo available.</h1>`
 	            }    
 	        }
 	
@@ -110,8 +82,8 @@ function addDone(theTodo) {
     for (let i = 0; i < theTodo.length; i++) {
         addDoneTask += `
         <ul class="task-container">
-        <li class="done-task">
-            <input type="checkbox" id="done-el" checked>
+        	<li class="done-task">
+            	<input type="checkbox" id="done-el" checked>
                 <strike>${doneTask[i]}</strike>
                 <button class="green done-delete-btn"><i class="fa fa-trash" aria-hidden="true"></i></button>
             </li>
