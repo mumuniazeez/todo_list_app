@@ -2,22 +2,25 @@
     --pageColor: #ffffff;
     --btnColor: #0063c9;
     --borderColor: #000000;
+    transition: all .5s;
 }
 
 [data-theme-dark="dark"] {
     --pageColor: #000000;
     --btnColor: #daa520;
     --borderColor: #ffffff;
+    transition: all .5s;
 }
 
 body{
     background-color: var(--pageColor);
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: 'Poppins', 'Trebuchet MS', sans-serif;
 }
 
 .info, .profile{
-    margin-top: 55px;
+    margin-top: 30px;
 }
+
 
 .clear{
     margin-left: auto;
@@ -49,8 +52,11 @@ body{
 }
 
 #result{
-    margin-top: 5px;
+    font-size: 0;
     color: var(--borderColor);
+    font-size: 12;
+    margin: 0;
+    transition: all 1s;
 }
 
 #add-btn{
@@ -74,7 +80,7 @@ body{
 }
 
 main{
-    margin-top: 40px;
+    margin-top: 15px;
 }
 
 .task-list, .done-task-list{
@@ -147,15 +153,23 @@ input[type="checkbox"]{
 
 .hero {
     display: flex;
-    justify-content: space-evenly;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .pro-name{
-    margin-left: 120px;
     color: var(--borderColor);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .color-mode{
+    margin-top: 20px;
+    margin-left: auto;
+}
+
+.first-list {
     margin-top: 20px;
 }
 
@@ -247,19 +261,19 @@ text-align: center;
 }
 
 @media all and (max-width: 699px) {
-    .add-content, .task-list, #list, .profile, .done-add-content, .done-task-list, #done-list{
+    .hero, .add-content, .task-list, #list, .profile, .done-add-content, .done-task-list, #done-list{
         width: 500px;
     }
 }
 
 @media all and (max-width: 499px){
-    .add-content, .task-list, #list, .profile, .done-add-content, .done-task-list, #done-list{
+    .hero, .add-content, .task-list, #list, .profile, .done-add-content, .done-task-list, #done-list{
         width: 300px;
     }
 }
 
 @media all and (max-width: 299px){
-    .add-content, .task-list, #list, .profile, .done-add-content, .done-task-list, #done-list{
+    .hero, .add-content, .task-list, #list, .profile, .done-add-content, .done-task-list, #done-list{
         width: 199px;
     }
     .builder-img{

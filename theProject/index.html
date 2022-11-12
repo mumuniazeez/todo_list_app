@@ -16,53 +16,55 @@
         <title>Todo List App</title>
     </head>
     <body>
-    <div id="root">
-        <div class="info">
-            <div class="hero">
-                <h1 class="pro-name">Todo List</h1>
-                <div class="color-mode">
-                    <button id="dark-mode">d</button>
-                    <button id="light-mode">l</button>
+        <div id="root">
+            <div class="info">
+                <div class="hero">
+                    <h1 class="pro-name">Todo List</h1>
+                    <div class="color-mode">
+                        <button id="dark-mode">d</button>
+                        <button id="light-mode">l</button>
+                    </div>
                 </div>
             </div>
-            <div class="add-content">
-                <input type="search" id="script" placeholder="Enter Todo" class="style">
-                <div id="result"></div>
-                <button id="add-btn" type="submit">Add Todo</button>
-            </div>
-        </div>
-        <main>
-            <div class="first-list">
+            <main>
                 <div class="add-content">
-                    <div class="clear">
-                        <div class="count-task"></div>
-                        <button class="clear-all-btn" type="submit">Clear All</button>
+                    <input type="search" id="script" placeholder="Enter Todo" class="style">
+                    <div id="result-container"></div>
+                    <button id="add-btn" type="submit">Add Todo</button>
+                </div>
+                <div class="first-list">
+                    <div class="add-content">
+                        <div class="clear">
+                            <div class="count-task">Loading...</div>
+                            <button class="clear-all-btn" type="submit">Clear All</button>
+                        </div>    
+                    </div>
+                    
+                    <div class="task-list">
+                        <div id="list">
+                            <h1 id="check-todo">Loading...</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="second-list">
+                    <div class="done-add-content">
+                        <div class="clear">
+                            <div class="done-count-task">Loading...</div>
+                            <button class="done-clear-all-btn" type="submit">Clear All</button>
+                        </div>    
+                    </div>
+                    <div class="done-task-list">
+                        <div id="done-list">
+                            <h1 id="check-todo">Loading...</h1>
+                        </div>
                     </div>    
                 </div>
-                <div class="task-list">
-        
-                    <div id="list"></div>
-                </div>    
-            </div>
-    
-            <div class="second-list">
-                <div class="done-add-content">
-                    <div class="clear">
-                        <div class="done-count-task"></div>
-                        <button class="done-clear-all-btn" type="submit">Clear All</button>
-                    </div>    
-                </div>
-                <div class="done-task-list">
-                    <div id="done-list"></div>
-                </div>    
-            </div>        
-    
-        </main>
-        <footer>
-            <p class="builder">Built by<button onclick="showProfile()">Azeez</button></p>
-        </footer>
-    </div>
-    <div class="page-2"></div>
+            </main>
+            <footer>
+                <p class="builder">Built by<button onclick="showProfile()">Azeez</button></p>
+            </footer>
+        </div>
+        <div class="page-2"></div>
         <script src="./script/DOM.js"></script>
         <script src="./script/pageLoader.js"></script>
         <script src="./script/main_script.js"></script>

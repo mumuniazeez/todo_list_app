@@ -30,5 +30,5 @@ const aboutMe = `
     </div>
 `
 // const loaded = sessionStorage.getItem("loading")
-// loaded ? null : location.replace("../")
-// sessionStorage.clear();
+//  loaded ? null : location.replace("../")
+//  sessionStorage.clear();

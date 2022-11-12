@@ -1,7 +1,7 @@
 const input = document.querySelector("#script")
 const addBtn = document.querySelector("#add-btn")
 const listRender = document.querySelector("#list")
-const resultEl = document.querySelector("#result")
+const resultEl = document.querySelector("#result-container")
 const clearBtn = document.querySelector(".clear-all-btn")
 // deleteBtn is Decleared in /* main_script.js */
 let deleteBtn 

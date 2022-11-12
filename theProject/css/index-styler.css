@@ -2,12 +2,14 @@
     --pageColor: #ffffff;
     --btnColor: #0063c9;
     --borderColor: #000000;
+    transition: all .5s;
 }
 
 [data-theme-dark="dark"] {
     --pageColor: #000000;
     --btnColor: #daa520;
     --borderColor: #ffffff;
+    transition: all .5s;
 }
 
 body{
@@ -47,21 +49,8 @@ body{
     height: 150px;
     border-radius: 100px;
     position: relative;
-    top: 35px;
     background-color: var(--pageColor);
-}
-
-.box::after{
-    content: "";
-    width: 150px;
-    height: 70px;
-    background-color: var(--pageColor);
-    border: 0;
-    border-radius:  115px;
-    position: relative;
-    top: 15px;
-    left: 2px;
-}
+} 
 
 .rotate{
     animation: rotate 2s ease infinite forwards;

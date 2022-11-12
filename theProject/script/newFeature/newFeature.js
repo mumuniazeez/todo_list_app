@@ -5,9 +5,10 @@ if (doneTasksFromLocalStorage) {
     addDone(doneTask)
 }
 
-if (doneTask.length == 0) {
-    doneList.innerHTML = `<h1 id="check-todo">No Todo been done.</h1>`
-}
+addDone(doneTask)
+
+
+
 
 function countDoneTheTodo(itemToCount) {
  function taskCounted(noOfTask) {
@@ -31,7 +32,7 @@ function doneLoadDeleteBtn() {
 	for (let i = 0; i < doneCurrentTodo.length; i++) {
 	    doneCurrentTodo[i].onclick = () => {
 	        if (doneTask.length == 1) {
-	            let doneTheTask = doneMotherContainer[i].firstElementChild.outerHTML
+	            let doneTheTask = doneMotherContainer[i].childNodes[3].outerHTML
 	            let doneTemplateTodo = (`\n        ${doneTheTask}\n        `)
 	            sessionStorage.setItem("recentToDoDeleted", doneTemplateTodo)
 	            localStorage.removeItem("doneTask")
@@ -42,7 +43,7 @@ function doneLoadDeleteBtn() {
 	            sessionStorage.removeItem("recentClearedTodo")
 	            doneList.innerHTML = `<h1 id="check-todo">No Todo available.</h1>`        
 	        } else {
-	            let doneTheTask = doneMotherContainer[i].firstElementChild.outerHTML
+	            let doneTheTask = doneMotherContainer[i].childNodes[3].outerHTML
 	            let todoToDelete = doneTask.indexOf(`\n        ${doneTheTask}\n        `)
 	            let doneTemplateTodo = (`\n        ${doneTheTask}\n        `)
 	            sessionStorage.setItem("recentToDoDeleted", doneTemplateTodo)
@@ -58,7 +59,6 @@ function doneLoadDeleteBtn() {
 	                doneList.innerHTML = `<h1 id="check-todo">No Todo available.</h1>`
 	            }    
 	        }
-	
 	
 	    }
 	}
@@ -91,11 +91,12 @@ function addDone(theTodo) {
         `
     }
     doneList.innerHTML = addDoneTask
+	doneTask.length == 0? 
+	doneList.innerHTML = `<h1 id="check-todo">No Todo been done.</h1>`
+	: null
     doneLoadDeleteBtn();
-    loadCheckbox();
 }
 doneLoadDeleteBtn();
-loadCheckbox();
 // if (myToDo.length == 1) {
 //     let deleteTheTask = deleteDoneMotherContainer[i].firstElementChild.outerHTML
 //     let deleteTemplateTodo = (`\n        ${deleteTheTask}\n        `)

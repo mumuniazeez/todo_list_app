@@ -4,10 +4,20 @@ if (tasksFromLocalStorage) {
     myToDo = tasksFromLocalStorage
     add(myToDo)
 }
-myToDo.length == 0 ? listRender.innerHTML = `<h1 id="check-todo">No Todo available.</h1>`: null
-   const result = (eventResult) => {
-       resultEl.innerHTML = eventResult
-    }
+   
+const result = (eventResult) => {
+        resultEl.innerHTML=""
+        let pTag = document.createElement("p")
+        pTag.id = "result"
+        pTag.innerHTML = eventResult
+        resultEl.append(pTag)
+
+}
+
+const okBtn = () => {
+    resultEL.innerHTML=""
+}
+
 const countTheTodo = (itemToCount) => {
     const taskCounted = (noOfTask) =>  {
         taskCounter.textContent = noOfTask
@@ -18,6 +28,31 @@ const countTheTodo = (itemToCount) => {
     
 }
 countTheTodo(myToDo)
+
+
+
+function loadCheckbox() {
+    let motherItemsToCheck = document.querySelectorAll(".task")
+    let itemsToCheck = document.querySelectorAll("#check")
+    for(let i =0; i < itemsToCheck; i++) {
+        let motherItemToCheck = motherItemsToCheck[i]
+        let itemToCheck = itemsToCheck[i]
+        itemToCheck.onclick = () => {
+            if (itemToCheck.check) {
+                let index = motherItemToCheck.childNodes[3].outerHTML
+                console.log(index);    
+                doneTask.push(
+                    `\n        ${index}\n        `
+                )
+                localStorage.setItem("doneTask", JSON.stringify(doneTask))
+	            let tasksFromLocalStorage = JSON.parse(localStorage.getItem("doneTask"))
+	            doneTask = tasksFromLocalStorage
+	            addDone(doneTask)
+            }
+        }
+    }
+
+}
 
 const undoClearAll = () => {
     let tasksFromSessionStorage = JSON.parse(sessionStorage.getItem("recentClearedTodo"))
@@ -53,7 +88,7 @@ function loadDeleteBtn() {
 	for (let i = 0; i < currentTodo.length; i++) {
 	    currentTodo[i].onclick = () => {
 	        if (myToDo.length == 1) {
-	            let theTask = motherContainer[i].firstElementChild.outerHTML
+	            let theTask = motherContainer[i].childNodes[3].outerHTML
 	            let templateTOdo = (`\n        ${theTask}\n        `)
 	            sessionStorage.setItem("recentToDoDeleted", templateTOdo)
 	            localStorage.removeItem("myToDo")
@@ -62,12 +97,13 @@ function loadDeleteBtn() {
 	            countTheTodo(myToDo);
 	            result(`A Todo as been deleted. <button onclick="result('')" id="okay-btn">OK</button> <button onclick="undoDelete()" id="okay-btn">Undo Delete</button>`)
 	            sessionStorage.removeItem("recentClearedTodo")
-	            listRender.innerHTML = `<h1 id="check-todo">No Todo available.</h1>`        
 	        } else {
-	            let theTask = motherContainer[i].firstElementChild.outerHTML
+                console.log(motherContainer);
+	            let theTask = motherContainer[i].childNodes[3].outerHTML
 	            let todoToDelete = myToDo.indexOf(`\n        ${theTask}\n        `)
-	            let templateTOdo = (`\n        ${theTask}\n        `)
-	            sessionStorage.setItem("recentToDoDeleted", templateTOdo)
+	            let templateTodo = (`\n        ${theTask}\n        `)
+                console.log(templateTodo);
+	            sessionStorage.setItem("recentToDoDeleted", templateTodo)
 	            myToDo.splice(todoToDelete, 1)
 	            localStorage.setItem("myToDo", JSON.stringify(myToDo))
 	            let tasksFromLocalStorage = JSON.parse(localStorage.getItem("myToDo"))
@@ -76,12 +112,7 @@ function loadDeleteBtn() {
 	            countTheTodo(myToDo)
 	            result(`A Todo as been deleted. <button onclick="result('')" id="okay-btn">OK</button> <button onclick="undoDelete()" id="okay-btn">Undo Delete</button>`)
 	            sessionStorage.removeItem("recentClearedTodo")
-	            if (myToDo.length == 0) {
-	                listRender.innerHTML = `<h1 id="check-todo">No Todo available.</h1>`
-	            }    
 	        }
-	
-	
 	    }
 	}
 }
@@ -107,7 +138,7 @@ function add(theTodo) {
         task += `
         <ul class="task-container">
         <li class="task">
-                <input type="checkbox" id="add-to-done">
+                <input type="checkbox" id="check">
                 ${theTodo[i]}
                 <button class="delete-btn"><i class="fa fa-trash" aria-hidden="true"></i></button>
             </li>
@@ -115,9 +146,11 @@ function add(theTodo) {
         `
     }
     listRender.innerHTML = task
+    myToDo.length == 0? 
+		listRender.innerHTML = `<h1 id="check-todo">No Todo been done.</h1>`
+	:null
     loadDeleteBtn();
-    loadCheckbox();
-    doneLoadDeleteBtn();
+    loadCheckbox()
 }
 
 clearBtn.addEventListener("dblclick", () => {
