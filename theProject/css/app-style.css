@@ -2,14 +2,14 @@
 
 [data-theme-light="light"] {
     --pageColor: #ffffff;
-    --btnColor: #0063c9;
+    --btnColor: #3b3b3b;
     --borderColor: #000000;
     transition: all .5s;
 }
 
 [data-theme-dark="dark"] {
     --pageColor: #000000;
-    --btnColor: #daa520;
+    --btnColor: #afafaf;
     --borderColor: #ffffff;
     transition: all .5s;
 }
