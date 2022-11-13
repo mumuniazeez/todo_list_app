@@ -39,7 +39,7 @@ function doneLoadDeleteBtn() {
 	            doneTask = []
 	            addDone(doneTask);
 	            countDoneTheTodo(doneTask)
-	            result(`A Todo as been deleted. <button onclick="result('')" id="okay-btn">OK</button> <button onclick="undoDelete()" id="okay-btn">Undo Delete</button>`)
+	            result(`A Todo as been deleted. <button onclick="okFunction()" id="okay-btn">OK</button> <button onclick="undoDelete()" id="okay-btn">Undo Delete</button>`)
 	            sessionStorage.removeItem("recentClearedTodo")
 	            doneList.innerHTML = `<h1 id="check-todo">No Todo available.</h1>`        
 	        } else {
@@ -53,7 +53,7 @@ function doneLoadDeleteBtn() {
 	            doneTask = tasksFromLocalStorage
 	            addDone(doneTask)
 	            countDoneTheTodo(doneTask)
-	            result(`A Todo as been deleted. <button onclick="result('')" id="okay-btn">OK</button> <button onclick="undoDelete()" id="okay-btn">Undo Delete</button>`)
+	            result(`A Todo as been deleted. <button onclick="okFunction()" id="okay-btn">OK</button> <button onclick="undoDelete()" id="okay-btn">Undo Delete</button>`)
 	            sessionStorage.removeItem("recentClearedTodo")
 	            if (doneTask.length == 0) {
 	                doneList.innerHTML = `<h1 id="check-todo">No Todo available.</h1>`
@@ -66,12 +66,12 @@ function doneLoadDeleteBtn() {
 
 doneClearAllBtn.addEventListener("dblclick",() => {
     if (doneTask.length == 0) {
-        result(`No Todo to clear. <button onclick="result('')" id="okay-btn">OK</button>`)
+        result(`No Todo to clear. <button onclick="okFunction()" id="okay-btn">OK</button>`)
     } else if (doneTask.length !== 0) {
         doneTask = []
         addDone(doneTask);
         countDoneTheTodo(doneTask);
-        result(`Your Todo has been cleared. <button onclick="result('')" id="okay-btn">OK</button> <button onclick="undoClearAll()" id="okay-btn">Undo Clear all</button>`)
+        result(`Your Todo has been cleared. <button onclick="okFunction()" id="okay-btn">OK</button> <button onclick="undoClearAll()" id="okay-btn">Undo Clear all</button>`)
         sessionStorage.removeItem("recentToDoDeleted")
         doneList.innerHTML = `<h1 id="check-todo">No Todo been done.</h1>`
     }
@@ -85,7 +85,7 @@ function addDone(theTodo) {
         	<li class="done-task">
             	<input type="checkbox" id="done-el" checked>
                 <strike>${doneTask[i]}</strike>
-                <button class="green done-delete-btn"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                <button class="green done-delete-btn"><span class="material-symbols-outlined">delete</span></button>
             </li>
         </ul>
         `

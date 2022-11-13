@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
 [data-theme-light="light"] {
     --pageColor: #ffffff;
     --btnColor: #0063c9;
@@ -14,6 +16,8 @@
 
 body{
     background-color: var(--pageColor);
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
 }
 .container, .loading-text{
     place-items: center;
@@ -27,7 +31,6 @@ body{
 }
 
 .loading-text {
-    font-family: 'Poppins', 'Trebuchet MS', sans-serif;
     margin-top: 50px;
     color: var(--borderColor);
 } 

@@ -6,16 +6,22 @@ if (tasksFromLocalStorage) {
 }
    
 const result = (eventResult) => {
-        resultEl.innerHTML=""
-        let pTag = document.createElement("p")
+    if (resultEl == "") {
+        let pTag = document.createElement("p");
         pTag.id = "result"
         pTag.innerHTML = eventResult
-        resultEl.append(pTag)
-
+        resultEl.append(pTag);
+    }else {
+        resultEl.innerHTML = ""
+        let pTag = document.createElement("p");
+        pTag.id = "result"
+        pTag.innerHTML = eventResult
+        resultEl.append(pTag);
+    }
 }
 
-const okBtn = () => {
-    resultEL.innerHTML=""
+const okFunction = () => {
+    resultEl.innerHTML = ""
 }
 
 const countTheTodo = (itemToCount) => {
@@ -32,12 +38,14 @@ countTheTodo(myToDo)
 
 
 function loadCheckbox() {
+    console.log("hi")
     let motherItemsToCheck = document.querySelectorAll(".task")
     let itemsToCheck = document.querySelectorAll("#check")
     for(let i =0; i < itemsToCheck; i++) {
         let motherItemToCheck = motherItemsToCheck[i]
         let itemToCheck = itemsToCheck[i]
         itemToCheck.onclick = () => {
+
             if (itemToCheck.check) {
                 let index = motherItemToCheck.childNodes[3].outerHTML
                 console.log(index);    
@@ -63,7 +71,7 @@ const undoClearAll = () => {
     add(myToDo)
     countTheTodo(myToDo)
     countDoneTheTodo(doneTask);
-    result(`Todos has been recovered. <button onclick="result('')" id="okay-btn">OK</button>`)
+    result(`Todos has been recovered. <button onclick="okFunction()" id="okay-btn">OK</button>`)
     sessionStorage.removeItem("recentClearedTodo")
     sessionStorage.removeItem("recentToDoDeleted")
 }
@@ -76,7 +84,7 @@ const undoDelete = () => {
     myToDo = tasksFromLocalStorage
     add(myToDo)
     countTheTodo(myToDo)
-    result(`A Todo has been recovered. <button onclick="result('')" id="okay-btn">OK</button>`)
+    result(`A Todo has been recovered. <button onclick="okFunction()" id="okay-btn">OK</button>`)
     sessionStorage.removeItem("recentToDoDeleted")
     sessionStorage.removeItem("recentClearedTodo")
 }
@@ -95,7 +103,7 @@ function loadDeleteBtn() {
 	            myToDo = []
 	            add(myToDo);
 	            countTheTodo(myToDo);
-	            result(`A Todo as been deleted. <button onclick="result('')" id="okay-btn">OK</button> <button onclick="undoDelete()" id="okay-btn">Undo Delete</button>`)
+	            result(`A Todo as been deleted. <button onclick="okFunction()" id="okay-btn">OK</button> <button onclick="undoDelete()" id="okay-btn">Undo Delete</button>`)
 	            sessionStorage.removeItem("recentClearedTodo")
 	        } else {
                 console.log(motherContainer);
@@ -110,7 +118,7 @@ function loadDeleteBtn() {
 	            myToDo = tasksFromLocalStorage
 	            add(myToDo)
 	            countTheTodo(myToDo)
-	            result(`A Todo as been deleted. <button onclick="result('')" id="okay-btn">OK</button> <button onclick="undoDelete()" id="okay-btn">Undo Delete</button>`)
+	            result(`A Todo as been deleted. <button onclick="okFunction()" id="okay-btn">OK</button> <button onclick="undoDelete()" id="okay-btn">Undo Delete</button>`)
 	            sessionStorage.removeItem("recentClearedTodo")
 	        }
 	    }
@@ -118,7 +126,7 @@ function loadDeleteBtn() {
 }
 addBtn.addEventListener("click", () => {
     if (input.value == ""||input.value == " ") {
-        result(`No Todo added, fill in your Todo above. <button onclick="result('')" id="okay-btn">OK</button>`)
+        result(`No Todo added, fill in your Todo above. <button onclick="okFunction()" id="okay-btn">OK</button>`)
     }
     else{
         myToDo.push(`
@@ -127,7 +135,7 @@ addBtn.addEventListener("click", () => {
         input.value = ""
         add(myToDo)
         localStorage.setItem("myToDo", JSON.stringify(myToDo))
-        result(`Your Todo have been added below. <button onclick="result('')" id="okay-btn">OK</button>`)
+        result(`Your Todo have been added below. <button onclick="okFunction()" id="okay-btn">OK</button>`)
         countTheTodo(myToDo);
     }
 })
@@ -140,7 +148,7 @@ function add(theTodo) {
         <li class="task">
                 <input type="checkbox" id="check">
                 ${theTodo[i]}
-                <button class="delete-btn"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                <button class="delete-btn"><span class="material-symbols-outlined">delete</span></button>
             </li>
         </ul>
         `
@@ -155,28 +163,28 @@ function add(theTodo) {
 
 clearBtn.addEventListener("dblclick", () => {
     if (myToDo.length == 0) {
-        result(`No Todo to clear. <button onclick="result('')" id="okay-btn">OK</button>`)
+        result(`No Todo to clear. <button onclick="okFunction()">OK</button>`)
     } else if (myToDo.length !== 0) {
         sessionStorage.setItem("recentClearedTodo", JSON.stringify(myToDo))
         localStorage.removeItem("myToDo")
         myToDo = []
         add(myToDo);
         countTheTodo(myToDo);
-        result(`Your Todo has been cleared. <button onclick="result('')" id="okay-btn">OK</button> <button onclick="undoClearAll()" id="okay-btn">Undo Clear all</button>`)
+        result(`Your Todo has been cleared. <button onclick="okFunction()" id="okay-btn">OK</button> <button onclick="undoClearAll()" id="okay-btn">Undo Clear all</button>`)
         sessionStorage.removeItem("recentToDoDeleted")
         listRender.innerHTML = `<h1 id="check-todo">No Todo available.</h1>`
     }
 })
 clearBtn.addEventListener("click", () => {
     if (myToDo.length == 0) {
-        result(`No Todo to clear. <button onclick="result('')" id="okay-btn">OK</button>`)
+        result(`No Todo to clear. <button onclick="okFunction()" id="okay-btn">OK</button>`)
     } else if (myToDo.length !== 0) {
-        result(`Double-click to clear all Todos. <button onclick="result('')" id="okay-btn">OK</button>`)
+        result(`Double-click to clear all Todos. <button onclick="okFunction()" id="okay-btn">OK</button>`)
     }
 })
 input.addEventListener("input", () => {
     input.value == "" || input.value == " " 
-    ? result(`Type in your Todo. <button onclick="result('')" id="okay-btn">OK</button>`)
+    ? result(`Type in your Todo. <button onclick="okFunction()" id="okay-btn">OK</button>`)
     : result("")
 })
 loadDeleteBtn();

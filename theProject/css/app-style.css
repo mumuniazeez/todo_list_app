@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
 [data-theme-light="light"] {
     --pageColor: #ffffff;
     --btnColor: #0063c9;
@@ -14,7 +16,8 @@
 
 body{
     background-color: var(--pageColor);
-    font-family: 'Poppins', 'Trebuchet MS', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
 }
 
 .info, .profile{
@@ -52,11 +55,9 @@ body{
 }
 
 #result{
-    font-size: 0;
     color: var(--borderColor);
-    font-size: 12;
     margin: 0;
-    transition: all 1s;
+    transition: all 6s;
 }
 
 #add-btn{
