@@ -37,7 +37,7 @@ function doneLoadCheckbox() {
                         addDone(doneTask)
                         countTheTodo(myToDo)
                         countDoneTheTodo(doneTask)    
-                    }, 2000)
+                    }, 1000)
                 } else {
                     setTimeout(() => {
                         let doneIndex = doneMotherItemsToCheck[i].childNodes[3]
@@ -57,7 +57,7 @@ function doneLoadCheckbox() {
                         addDone(doneTask)
                         countTheTodo(myToDo)
                         countDoneTheTodo(doneTask)
-                    }, 2000)
+                    }, 1000)
                 }
             }
         }
