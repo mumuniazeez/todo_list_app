@@ -1,3 +1,4 @@
+/* import Poppins from Goggle API */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
 [data-theme-light="light"] {
@@ -258,6 +259,7 @@ text-align: center;
 }
 
 .second-list{
+    display: none;
     margin-top: 40px;
 }
 

@@ -1,5 +1,5 @@
 # Todo List App
-The Todo List App project was started on "13 of October, 2022" and was finshed on "8 of October, 2022". 
+
 
 It has a lot of features and works perfectly. 
 
@@ -8,9 +8,9 @@ It has a lot of features and works perfectly.
 * Interactive user interfaces
 * Well contrasted color for the eye
 
-## Check ✅✅ it out.
+### Check ✅✅ it out.
 
-Link to Project: https://az-todo-list-app.netlify.app
+(Veiw Project): [https://az-todo-list-app.netlify.app]
 
 # Contact App builder
 Email: mumuniazeez99@gmail.com.
