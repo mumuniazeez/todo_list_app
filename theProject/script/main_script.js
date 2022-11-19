@@ -4,6 +4,27 @@ if (tasksFromLocalStorage) {
     myToDo = tasksFromLocalStorage
 }
 add(myToDo)
+
+const result = (eventResult) => {
+    if (resultEl == "") {
+        let pTag = document.createElement("p");
+        pTag.id = "result"
+        pTag.innerHTML = eventResult
+        resultEl.append(pTag);
+    }else {
+        resultEl.innerHTML = ""
+        let pTag = document.createElement("p");
+        pTag.id = "result"
+        pTag.innerHTML = eventResult
+        resultEl.append(pTag);
+    }
+}
+
+const okFunction = () => {
+    resultEl.innerHTML = ""
+}
+
+
 const countTheTodo = (itemToCount) => {
     const taskCounted = (noOfTask) =>  {
         taskCounter.textContent = noOfTask
@@ -31,7 +52,7 @@ function loadCheckbox() {
                         add(myToDo)
                         countTheTodo(myToDo)
                         countDoneTheTodo(doneTask)
-                    }, 1000)
+                    }, 500)
 
                 } else {
                     setTimeout(() => {
@@ -50,12 +71,40 @@ function loadCheckbox() {
                         add(myToDo)
                         countTheTodo(myToDo)
                         countDoneTheTodo(doneTask)    
-                    }, 1000)
+                    }, 500)
                 }
             }
         }
     }
 }
+
+const undoClearAll = () => {
+    let tasksFromSessionStorage = JSON.parse(sessionStorage.getItem("recentClearedTodo"))
+    myToDo = tasksFromSessionStorage
+    localStorage.setItem("myToDo", JSON.stringify(myToDo))
+    tasksFromLocalStorage = JSON.parse(localStorage.getItem("myToDo"))
+    myToDo = tasksFromLocalStorage
+    add(myToDo)
+    countTheTodo(myToDo)
+    countDoneTheTodo(doneTask);
+    result(`Todos has been recovered. <button onclick="okFunction()" id="okay-btn">OK</button>`)
+    sessionStorage.removeItem("recentClearedTodo")
+    sessionStorage.removeItem("recentToDoDeleted")
+}
+
+const undoDelete = () => {
+    let recentToDoDeleted = sessionStorage.getItem("recentToDoDeleted")
+    myToDo.push(recentToDoDeleted)
+    localStorage.setItem("myToDo", JSON.stringify(myToDo))
+    let tasksFromLocalStorage = JSON.parse(localStorage.getItem("myToDo"))
+    myToDo = tasksFromLocalStorage
+    add(myToDo)
+    countTheTodo(myToDo)
+    result(`A Todo has been recovered. <button onclick="okFunction()" id="okay-btn">OK</button>`)
+    sessionStorage.removeItem("recentToDoDeleted")
+    sessionStorage.removeItem("recentClearedTodo")
+}
+
 function loadDeleteBtn() {
 	let motherContainer = document.querySelectorAll(".task")
 	let  currentTodo = document.querySelectorAll(".delete-btn")
@@ -69,6 +118,7 @@ function loadDeleteBtn() {
 	            myToDo = []
 	            add(myToDo);
 	            countTheTodo(myToDo);
+                -	            result(`A Todo as been deleted. <button onclick="okFunction()" id="okay-btn">OK</button> <button onclick="undoDelete()" id="okay-btn">Undo Delete</button>`)
 	            sessionStorage.removeItem("recentClearedTodo")
 	        } else {
 	            let theTask = motherContainer[i].childNodes[3].outerHTML
@@ -81,6 +131,7 @@ function loadDeleteBtn() {
 	            myToDo = tasksFromLocalStorage
 	            add(myToDo)
 	            countTheTodo(myToDo)
+                result(`A Todo as been deleted. <button onclick="okFunction()" id="okay-btn">OK</button> <button onclick="undoDelete()" id="okay-btn">Undo Delete</button>`)
 	            sessionStorage.removeItem("recentClearedTodo")
 	        }
 	    }
@@ -88,6 +139,7 @@ function loadDeleteBtn() {
 }
 addBtn.addEventListener("click", () => {
     if (input.value == ""||input.value == " ") {
+        result(`No Todo added, fill in your Todo above. <button onclick="okFunction()" id="okay-btn">OK</button>`)
     }
     else{
         myToDo.push(`
@@ -96,6 +148,7 @@ addBtn.addEventListener("click", () => {
         input.value = ""
         add(myToDo)
         localStorage.setItem("myToDo", JSON.stringify(myToDo))
+        result(`Your Todo have been added below. <button onclick="okFunction()" id="okay-btn">OK</button>`)
         countTheTodo(myToDo);
     }
 })
@@ -122,21 +175,27 @@ function add(theTodo) {
 }
 clearBtn.addEventListener("dblclick", () => {
     if (myToDo.length == 0) {
+        result(`No Todo to clear. <button onclick="okFunction()">OK</button>`)
     } else if (myToDo.length !== 0) {
         sessionStorage.setItem("recentClearedTodo", JSON.stringify(myToDo))
         localStorage.removeItem("myToDo")
         myToDo = []
         add(myToDo);
         countTheTodo(myToDo);
+        result(`Your Todo has been cleared. <button onclick="okFunction()" id="okay-btn">OK</button> <button onclick="undoClearAll()" id="okay-btn">Undo Clear all</button>`)
         sessionStorage.removeItem("recentToDoDeleted")
     }
 })
 clearBtn.addEventListener("click", () => {
     if (myToDo.length == 0) {
+        result(`No Todo to clear. <button onclick="okFunction()" id="okay-btn">OK</button>`)
     } else if (myToDo.length !== 0) {
+        result(`Double-click to clear all Todos. <button onclick="okFunction()" id="okay-btn">OK</button>`)
     }
 })
 input.addEventListener("input", () => {
     input.value == "" || input.value == " " 
+    ? result(`Type in your Todo. <button onclick="okFunction()" id="okay-btn">OK</button>`)
+    : result("")
 })
 loadDeleteBtn();

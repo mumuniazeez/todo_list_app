@@ -17,6 +17,17 @@ function countDoneTheTodo(itemToCount) {
  }
 }
 countDoneTheTodo(doneTask)
+
+const viewDone = () => {
+
+}
+
+viewDoneBtn.addEventListener("click", () => {
+    
+})
+
+
+
 function doneLoadCheckbox() {
 	let doneMotherItemsToCheck = document.querySelectorAll(".done-task")
     let doneItemsToCheck = document.querySelectorAll("#done-check")
@@ -37,7 +48,7 @@ function doneLoadCheckbox() {
                         addDone(doneTask)
                         countTheTodo(myToDo)
                         countDoneTheTodo(doneTask)    
-                    }, 1000)
+                    }, 500)
                 } else {
                     setTimeout(() => {
                         let doneIndex = doneMotherItemsToCheck[i].childNodes[3]
@@ -57,7 +68,7 @@ function doneLoadCheckbox() {
                         addDone(doneTask)
                         countTheTodo(myToDo)
                         countDoneTheTodo(doneTask)
-                    }, 1000)
+                    }, 500)
                 }
             }
         }

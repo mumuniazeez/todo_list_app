@@ -20,9 +20,11 @@ const checkLastColorMood = () => {
 darkModeBtn.addEventListener("click", () => {
     localStorage.setItem("darkColor", "Changed color to dark mood.")
     changeToDarkMood();
+    result(`${localStorage.darkColor}  <button onclick="result('')" id="okay-btn">OK</button>`)
 });
 lightModeBtn.addEventListener("click", () => {
     localStorage.removeItem("darkColor");
     changeToLightMood();
+    result(`Changed color to light mood.  <button onclick="result('')" id="okay-btn">OK</button>`)
 });
 checkLastColorMood();
