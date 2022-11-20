@@ -24,7 +24,11 @@ function viewDone() {
         secondList.style.display = "none"
         hideDoneBtn.style.display = "none"
     } else {
-        viewDoneBtn.style.display = "block"
+        if (hideDoneBtn.style.display == "block") {
+            viewDoneBtn.style.display = "none"
+        } else {
+            viewDoneBtn.style.display = "block"
+        }
         viewDoneBtn.addEventListener("click", () => {
             viewDoneBtn.style.display = "none"
             hideDoneBtn.style.display = "block"

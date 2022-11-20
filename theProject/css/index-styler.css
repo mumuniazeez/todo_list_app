@@ -62,14 +62,14 @@ body{
 @keyframes rotate {
     0%{
         rotate: 0deg;
-        background: linear-gradient(25deg, white, var(--pageColor));
+        background: linear-gradient(25deg, var(--borderColor), var(--pageColor));
     }
     50%{
         rotate: 360deg;
-        background: linear-gradient(25deg, white, var(--pageColor));
+        background: linear-gradient(25deg, var(--borderColor), var(--pageColor));
     }
     100%{
         rotate: 720deg;
-        background: linear-gradient(25deg, white, var(--pageColor));
+        background: linear-gradient(25deg, var(--borderColor), var(--pageColor));
     }
 }
