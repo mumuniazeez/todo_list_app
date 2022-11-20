@@ -124,10 +124,8 @@ main{
 }
 
 input[type="checkbox"]{
-    position: relative;
-    right: 25px;
+    margin: auto auto auto 10px;
     accent-color: var(--pageColor);
-    top: 15px;
 }
 
 .green{
