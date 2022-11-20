@@ -52,7 +52,8 @@ function loadCheckbox() {
                         add(myToDo)
                         countTheTodo(myToDo)
                         countDoneTheTodo(doneTask)
-                    }, 500)
+                        viewDone();
+                    }, 200)
 
                 } else {
                     setTimeout(() => {
@@ -70,8 +71,9 @@ function loadCheckbox() {
                         myToDo = tasksFromLocalStorage
                         add(myToDo)
                         countTheTodo(myToDo)
-                        countDoneTheTodo(doneTask)    
-                    }, 500)
+                        countDoneTheTodo(doneTask)
+                        viewDone();
+                    }, 200)
                 }
             }
         }

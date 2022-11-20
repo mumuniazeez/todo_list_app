@@ -24,6 +24,7 @@ function viewDone() {
         secondList.style.display = "none"
         hideDoneBtn.style.display = "none"
     } else {
+        viewDoneBtn.style.display = "block"
         viewDoneBtn.addEventListener("click", () => {
             viewDoneBtn.style.display = "none"
             hideDoneBtn.style.display = "block"
@@ -52,7 +53,7 @@ function doneLoadCheckbox() {
                 if (doneTask.length == 1) {
                     setTimeout(() => {
                         let doneIndex = doneMotherItemsToCheck[i].childNodes[3]
-                        let index = doneIndex.childNodes[1].innerHTML
+                        let index = doneIndex.childNodes[1].outerHTML
                         let doneTaskToDeleteFormMyToDo = `\n        ${index}\n        `
                         myToDo.push(doneTaskToDeleteFormMyToDo)
                         localStorage.setItem("myToDo", JSON.stringify(myToDo))
@@ -62,7 +63,7 @@ function doneLoadCheckbox() {
                         addDone(doneTask)
                         countTheTodo(myToDo)
                         countDoneTheTodo(doneTask)    
-                    }, 500)
+                    }, 200)
                 } else {
                     setTimeout(() => {
                         let doneIndex = doneMotherItemsToCheck[i].childNodes[3]
@@ -81,7 +82,7 @@ function doneLoadCheckbox() {
                         addDone(doneTask)
                         countTheTodo(myToDo)
                         countDoneTheTodo(doneTask)
-                    }, 500)
+                    }, 200)
                 }
             }
         }
