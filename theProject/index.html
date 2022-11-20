@@ -4,15 +4,20 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Mumuni Abdul Azeez">
-        <meta name="description" content="Write your todo, so you dont have to forget them.">
+        <meta name="author" content="Mumuni Abdul-Azeez">
+        <meta name="description" content="Write your todo, so you don't have to forget them :).">
         <meta name="keywords" 
-        content="todo, list, todo-list, todo list, azeez, azeez todo-list, azeez todo list, todo list azeez, a20200 todo list, a20200">
+        content="todo, list, todo-list, todo list, azeez, azeez todo-list, azeez todo list, todo list azeez, netlify todo list, netlify">
         <meta name="logo" content="./images/multicolorLogo.png">
         <link rel="stylesheet" href="./css/app-style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <!-- Keep the third link as the third link, Don't remove change the position of the third link.-->
         <link rel='shortcut icon' type='image/x-icon'>
+        <script>
+            const loaded = sessionStorage.getItem("loading")
+            loaded ? null : location.replace("../")
+            sessionStorage.clear();
+        </script>
         <title>Todo List App</title>
     </head>
     <body>
@@ -48,12 +53,14 @@
                         </div>
                     </div>
                 </div>
-                <button id="view-done">View Done 
-                    <span class="material-symbols-outlined expand-more">expand_more</span>
-                </button>
-                <button id="view-done">Hide Done 
-                    <span class="material-symbols-outlined expand-less">expand_less</span>
-                </button>
+                <div class="view-hide-done">
+                    <button id="view-done">View Done 
+                        <span class="material-symbols-outlined expand-more">expand_more</span>
+                    </button>
+                    <button id="hide-done">Hide Done 
+                        <span class="material-symbols-outlined expand-less">expand_less</span>
+                    </button>    
+                </div>
                 <div class="second-list">
                     <div class="done-add-content">
                         <div class="clear">
@@ -75,15 +82,15 @@
 
 
         <div class="page-2"></div>
-        <script src="./script/DOM.js"></script>
         <script src="./script/pageLoader.js"></script>
+        <script src="./script/DOM.js"></script>
         <script src="./script/main_script.js"></script>
         <script src="./script/colorMode.js"></script>
         <script src="./script/newFeature/newFeatureDOM.js"></script>
         <script src="./script/newFeature/newFeature.js"></script>
 
-        <!--Start of Tawk.to Script-->
-        <!-- <script type="text/javascript">
+        <!-- Start of Tawk.to Script-->
+        <script type="text/javascript">
             var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
             (function(){
             var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -93,7 +100,7 @@
             s1.setAttribute('crossorigin','*');
             s0.parentNode.insertBefore(s1,s0);
             })();
-        </script> -->
-        <!--End of Tawk.to Script-->
+        </script>
+        <!--End of Tawk.to Script -->
     </body>
 </html>

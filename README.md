@@ -1,6 +1,6 @@
 # Todo List App
 This project was built to make the user have a retentive memory. It is a really good web app
- esplecially for web developers. 
+ especially for web developers. 
  
 Tied of forgetting what `Todo` :(, we have you covered. Write your todo so you don't have to forget them :).
 
@@ -13,7 +13,7 @@ It has a lot of features and works perfectly.
 
 ### Check ✅✅ it out.
 
-[View Project]: (https://az-todo-list-app.netlify.app)
+[View Project](https://az-todo-list-app.netlify.app)
 
 # Contact App builder
 Email: mumuniazeez99@gmail.com.
@@ -23,6 +23,6 @@ Phone number: +234 8148 8834 82.
 Location: Lagos, Nigeria.
 
 # Credit
-Built and designed by "Azeez" and with support from his parents.
+Built and designed by ["Azeez"](#).
 
  © copyright 2022 Az De Coder

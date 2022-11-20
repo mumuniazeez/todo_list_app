@@ -16,6 +16,7 @@ body{
     background-color: var(--pageColor);
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
+    overflow: hidden;
 }
 .container, .loading-text{
     place-items: center;
@@ -46,29 +47,29 @@ body{
 
 .box::before{
     content: "";
-    width: 150px;
-    height: 150px;
+    width: 190px;
+    height: 190px;
     border-radius: 100px;
     position: relative;
     background-color: var(--pageColor);
 } 
 
 .rotate{
-    animation: rotate 2s ease infinite forwards;
+    animation: rotate 3s ease infinite forwards;
 }
 
 
 @keyframes rotate {
     0%{
         rotate: 0deg;
-        background: linear-gradient(25deg, #afafaf, #3b3b3b);
+        background: linear-gradient(25deg, white, var(--pageColor));
     }
     50%{
         rotate: 360deg;
-        background: linear-gradient(50deg, #3b3b3b, #afafaf);
+        background: linear-gradient(25deg, white, var(--pageColor));
     }
     100%{
         rotate: 720deg;
-        background: linear-gradient(25deg, #afafaf, #3b3b3b);
+        background: linear-gradient(25deg, white, var(--pageColor));
     }
 }

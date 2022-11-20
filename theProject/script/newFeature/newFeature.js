@@ -18,13 +18,28 @@ function countDoneTheTodo(itemToCount) {
 }
 countDoneTheTodo(doneTask)
 
-const viewDone = () => {
-
+function viewDone() {
+    if (doneTask.length == 0) {
+        viewDoneBtn.style.display = "none"
+        secondList.style.display = "none"
+        hideDoneBtn.style.display = "none"
+    } else {
+        viewDoneBtn.addEventListener("click", () => {
+            viewDoneBtn.style.display = "none"
+            hideDoneBtn.style.display = "block"
+            secondList.style.display = "block"
+        })
+        hideDoneBtn.addEventListener("click", () => {
+            viewDoneBtn.style.display = "block"
+            hideDoneBtn.style.display = "none"
+            secondList.style.display = "none"
+        })
+    }
 }
 
-viewDoneBtn.addEventListener("click", () => {
-    
-})
+viewDone();
+
+
 
 
 
@@ -33,14 +48,13 @@ function doneLoadCheckbox() {
     let doneItemsToCheck = document.querySelectorAll("#done-check")
     for (let i = 0; i < doneItemsToCheck.length; i++) {
         doneItemsToCheck[i].onclick = () => {
-			console.log(doneItemsToCheck[i].checked)
             if (!doneItemsToCheck[i].checked) {
                 if (doneTask.length == 1) {
                     setTimeout(() => {
                         let doneIndex = doneMotherItemsToCheck[i].childNodes[3]
                         let index = doneIndex.childNodes[1].innerHTML
-                        let doneTasktoDeleteFormMyToDo = `\n        ${index}\n        `
-                        myToDo.push(doneTasktoDeleteFormMyToDo)
+                        let doneTaskToDeleteFormMyToDo = `\n        ${index}\n        `
+                        myToDo.push(doneTaskToDeleteFormMyToDo)
                         localStorage.setItem("myToDo", JSON.stringify(myToDo))
                         add(myToDo)
                         doneTask = []
@@ -53,14 +67,13 @@ function doneLoadCheckbox() {
                     setTimeout(() => {
                         let doneIndex = doneMotherItemsToCheck[i].childNodes[3]
                         let index = doneIndex.childNodes[1].outerHTML
-                        console.log(index)
-                        let doneTasktoDeleteFormMyToDo = `\n        ${index}\n        `
-                        myToDo.push(doneTasktoDeleteFormMyToDo)
+                        let doneTaskToDeleteFormMyToDo = `\n        ${index}\n        `
+                        myToDo.push(doneTaskToDeleteFormMyToDo)
                         localStorage.setItem("myToDo", JSON.stringify(myToDo))
                         let undoneTaskFromLocalStorage = JSON.parse(localStorage.getItem("myToDo"))
                         myToDo = undoneTaskFromLocalStorage
                         add(myToDo)
-                        let indexOfDoneTaskToRemoveFromMyToDo = doneTask.indexOf(doneTasktoDeleteFormMyToDo)
+                        let indexOfDoneTaskToRemoveFromMyToDo = doneTask.indexOf(doneTaskToDeleteFormMyToDo)
                         doneTask.splice(indexOfDoneTaskToRemoveFromMyToDo, 1)
                         localStorage.setItem("doneTask", JSON.stringify(doneTask))
                         tasksFromLocalStorage = JSON.parse(localStorage.getItem("doneTask"))
@@ -110,14 +123,11 @@ function doneLoadDeleteBtn() {
 }
 
 doneClearAllBtn.addEventListener("dblclick",() => {
-    if (doneTask.length == 0) {
-    } else if (doneTask.length !== 0) {
         doneTask = []
         addDone(doneTask);
         countDoneTheTodo(doneTask);
         sessionStorage.removeItem("recentToDoDeleted")
         doneList.innerHTML = `<h1 id="check-todo">No Todo been done.</h1>`
-    }
 })
 
 function addDone(theTodo) {
@@ -140,4 +150,5 @@ function addDone(theTodo) {
         doneLoadDeleteBtn();
 	    doneLoadCheckbox();
     }
+    viewDone();
 }

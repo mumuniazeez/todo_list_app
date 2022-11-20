@@ -29,6 +29,3 @@ const aboutMe = `
         </div>
     </div>
 `
-// const loaded = sessionStorage.getItem("loading")
-//  loaded ? null : location.replace("../")
-//  sessionStorage.clear();

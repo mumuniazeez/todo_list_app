@@ -5,14 +5,14 @@
     --pageColor: #ffffff;
     --btnColor: #3b3b3b;
     --borderColor: #000000;
-    transition: all .5s;
+    transition: all .5s ease-out;
 }
 
 [data-theme-dark="dark"] {
     --pageColor: #000000;
     --btnColor: #afafaf;
     --borderColor: #ffffff;
-    transition: all .5s;
+    transition: all .5s ease-out;
 }
 
 body{
@@ -153,6 +153,11 @@ input[type="checkbox"]{
     display: none;
 }
 
+
+#hide-done{
+    display: none;
+}
+
 .hero {
     display: flex;
     width: 700px;
@@ -263,20 +268,46 @@ text-align: center;
     margin-top: 40px;
 }
 
+.view-hide-done{
+    margin-top: 20px;
+    width: 700px;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+
+#hide-done{
+    display: none;
+}
+
+#view-done, #hide-done{
+    background-color: var(--btnColor);
+    color: var(--pageColor);
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.expand-more, .expand-less{
+    position: relative;
+    top: 5px;
+}
+
 @media all and (max-width: 699px) {
-    .hero, .add-content, .task-list, #list, .profile, .done-add-content, .done-task-list, #done-list{
+    .hero, .add-content, .task-list, #list, .profile, .done-add-content, .done-task-list, #done-list, .view-hide-done{
         width: 500px;
     }
 }
 
 @media all and (max-width: 499px){
-    .hero, .add-content, .task-list, #list, .profile, .done-add-content, .done-task-list, #done-list{
+    .hero, .add-content, .task-list, #list, .profile, .done-add-content, .done-task-list, #done-list, .view-hide-done{
         width: 300px;
     }
 }
 
 @media all and (max-width: 299px){
-    .hero, .add-content, .task-list, #list, .profile, .done-add-content, .done-task-list, #done-list{
+    .hero, .add-content, .task-list, #list, .profile, .done-add-content, .done-task-list, #done-list, .view-hide-done{
         width: 199px;
     }
     .builder-img{
