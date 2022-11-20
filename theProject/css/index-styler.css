@@ -16,7 +16,6 @@ body{
     background-color: var(--pageColor);
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
-    overflow: hidden;
 }
 .container, .loading-text{
     place-items: center;
