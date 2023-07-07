@@ -124,7 +124,7 @@ main{
 }
 
 input[type="checkbox"]{
-    margin: auto auto auto 5px;
+    margin: auto 30px auto 5px;
     accent-color: var(--pageColor);
     display: block;
 }
