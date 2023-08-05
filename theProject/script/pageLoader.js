@@ -18,7 +18,7 @@ const aboutMe = `
                 <h1 class='my-name'>Mumuni Abdul-Azeez</h1>
                 <p class='about-me'>
                     I am Mumuni Abdul-Azeez, I am from Nigeria🙏🙏. I am a Website Developer👨‍💻👩‍💻 and a Graphic Designer 🌻🌼🌺. I am long lasting 🗽🗽, 
-                    <a href='https://az-codes-portfolio.netlify.app'>Read more....</a>
+                    <a target='_blank' href='https://az-codes-portfolio.netlify.app'>Read more....</a>
                     <br>I built this project as a test for skills.
                 </p>
             </div>
